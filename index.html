@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max sum of sub array</title>
+  </head>
+  <body>
+    <h1>Max sum of sub array</h1>
+    <p id="ans"></p>
+    <br />
+    <script>
+      let num = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+      var maxsubarray = function (num) {
+        let sum = num[0]
+        for (i = 1; i < num.length; i++) {
+          num[i] = Math.max(num[i], num[i] + num[i - 1])
+
+          sum = Math.max(sum, num[i])
+          if (num[i] < 0) {
+            sum = 0
+          }
+        }
+        return sum
+      }
+
+      document.getElementById('ans').innerHTML =
+        'The awnser is = ' + maxsubarray(num)
+      console.log(maxsubarray(num))
+    </script>
+  </body>
+</html>
